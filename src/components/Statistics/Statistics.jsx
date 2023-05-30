@@ -1,35 +1,14 @@
+import './Statistics.module.css';
 import PropTypes from 'prop-types';
 
-import {
-  StatisticTitel,
-  StatisticList,
-  StatisticItem,
-} from './Statistics.styles';
-
-export function Statistics({
-  good,
-  neutral,
-  bad,
-  countTotalFeedback,
-  countPositiveFeedbackPercentage,
-}) {
+export function Statistics({ good, neutral, bad, total, positivePercentage }) {
   return (
     <>
-      <StatisticTitel>Statistics:</StatisticTitel>
-
-      <StatisticList>
-        <StatisticItem>Good: {good}</StatisticItem>
-        <StatisticItem>Neutral: {neutral}</StatisticItem>
-        <StatisticItem>Bad: {bad}</StatisticItem>
-        <StatisticItem>Total: {countTotalFeedback()}</StatisticItem>
-        <StatisticItem>
-          Positive feedback:
-          {countPositiveFeedbackPercentage()
-            ? countPositiveFeedbackPercentage()
-            : 0}
-          %
-        </StatisticItem>
-      </StatisticList>
+      <p>Good: {good}</p>
+      <p>Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
+      <p>Total: {total}</p>
+      <p>Positive feedback: {positivePercentage}%</p>
     </>
   );
 }
@@ -38,6 +17,6 @@ Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
-  countTotalFeedback: PropTypes.func.isRequired,
-  countPositiveFeedbackPercentage: PropTypes.func.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };

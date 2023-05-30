@@ -1,25 +1,25 @@
+import './FeedbackOptions.css';
 import PropTypes from 'prop-types';
 
-import { List, Button } from './FeedbackOptions.styles';
-
-export function FeedbackOptions({ increment }) {
+export function Feedback({ options, onLeaveFeedback }) {
   return (
-    <>
-      <List>
-        <li>
-          <Button onClick={() => increment('good')}>Good</Button>
-        </li>
-        <li>
-          <Button onClick={() => increment('neutral')}>Neutral</Button>
-        </li>
-        <li>
-          <Button onClick={() => increment('bad')}>Bad</Button>
-        </li>
-      </List>
-    </>
+    <div className="block">
+      {options.map(el => (
+        <button
+          className="block__button"
+          key={el}
+          name={el}
+          type="button"
+          onClick={onLeaveFeedback}
+        >
+          {el}
+        </button>
+      ))}
+    </div>
   );
 }
 
-FeedbackOptions.propTypes = {
-  increment: PropTypes.func.isRequired,
+Feedback.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string),
+  onLeaveFeedback: PropTypes.func.isRequired,
 };

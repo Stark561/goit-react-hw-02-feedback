@@ -1,18 +1,16 @@
+import './Section.css';
 import PropTypes from 'prop-types';
 
-import { StatisticSection, SectionTitle } from './Section.styles';
-
-export function Section({ children, title }) {
+export function Section({ title, children }) {
   return (
-    <>
-      <StatisticSection>
-        {title && <SectionTitle>{title}</SectionTitle>}
-        {children}
-      </StatisticSection>
-    </>
+    <section className="section">
+      <h2>{title}</h2>
+      {children}
+    </section>
   );
 }
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };

@@ -1,10 +1,11 @@
+import './Notification.css';
 import PropTypes from 'prop-types';
-
-import { NotificationMassage } from './Notification.styles';
 
 export function Notification({ message }) {
   return (
-    <> {message && <NotificationMassage>{message}</NotificationMassage>} </>
+    <>
+      <p className="message">{message}</p>
+    </>
   );
 }
 
